@@ -1,0 +1,11 @@
+# Folders
+bin/
+obj/
+.nuget/
+
+# Visual Studio config folder
+.vscode/
+
+# Ignore appsettings files if you use local environments
+appsettings.Development.json
+appsettings.Production.json
