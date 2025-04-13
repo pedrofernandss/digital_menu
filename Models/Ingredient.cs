@@ -10,6 +10,7 @@ namespace digital_menu.Models
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Unit { get; set; } = string.Empty;
+        public List<RecipeIngredient> RecipeIngredients { get; set; } = new List<RecipeIngredient>();
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         
