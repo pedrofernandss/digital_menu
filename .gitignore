@@ -1,0 +1,68 @@
+# Compilação
+bin/
+obj/
+out/
+
+# Pacotes do NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Arquivos de log e temporários
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Arquivos do Visual Studio
+*.dbmdl
+*.pdb
+*.cache
+*.vspscc
+*.vssscc
+.vs/
+.vscode/
+
+# Configuração de ambiente
+.env
+.env.*
+
+# Entity Framework Core
+Migrations/
+
+# Banco de dados local
+*.mdf
+*.ldf
+*.sqlite
+*.db
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Testes
+TestResults/
+coverage/
+
+# Rider (JetBrains)
+*.sln.iml
+.idea/
+
+# Outros
+*.orig
