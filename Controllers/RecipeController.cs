@@ -23,7 +23,7 @@ namespace digital_menu.Controllers
             return Ok(recipes);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public IActionResult GetById([FromRoute] int id) {
             var recipe = _context.Recipes.Find(id);
 
