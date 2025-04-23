@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using digital_menu.Data;
 using Microsoft.AspNetCore.Mvc;
 using digital_menu.Mappers;
+using digital_menu.Dtos.Ingredient;
 
 namespace digital_menu.Controllers
 {
@@ -35,6 +36,14 @@ namespace digital_menu.Controllers
 
             return Ok(ingredient.ToIngredientDto());
         }
-        
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateIngredientRequestDto ingredientDto) 
+        {
+            var ingredientModel = ingredientDto.ToIngredientFromCreateDTO();
+            _context.Ingredients.Add(ingredientModel);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(GetById), new {id = ingredientModel}, ingredientModel.ToIngredientDto());
+        }
     }
 }
