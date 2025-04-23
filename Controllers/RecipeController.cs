@@ -21,7 +21,7 @@ namespace digital_menu.Controllers
 
         [HttpGet]
         public IActionResult GetAll() {
-            var recipes = _context.Recipes.ToList();
+            var recipes = _context.Recipes.ToList().Select(r => r.ToRecipeDto());
             return Ok(recipes);
         }
 
@@ -33,7 +33,7 @@ namespace digital_menu.Controllers
                 return NotFound();
             }
 
-            return Ok(recipe);
+            return Ok(recipe.ToRecipeDto());
         }
         
         [HttpPost]
