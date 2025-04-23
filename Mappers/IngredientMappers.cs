@@ -18,5 +18,14 @@ namespace digital_menu.Mappers
                 Unit = ingredientModel.Unit,
             };
         }
+
+        public static Ingredient ToIngredientFromCreateDTO(this CreateIngredientRequestDto ingredientDto)
+        {
+            return new Ingredient
+            {
+                Name = ingredientDto.Name,
+                Unit = ingredientDto.Unit,
+            };
+        }
     }
 }
