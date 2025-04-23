@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using digital_menu.Data;
+using Microsoft.AspNetCore.Mvc;
+using digital_menu.Mappers;
+
+namespace digital_menu.Controllers
+{
+    [Route("api/ingredients")]
+    [ApiController]
+    public class IngredientController : ControllerBase
+    {
+        private readonly ApplicationDBContext _context;
+        public IngredientController(ApplicationDBContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public IActionResult GetAll() {
+            var ingredients = _context.Ingredients.ToList().Select(i => i.ToIngredientDto());
+            
+            return Ok(ingredients);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById([FromRoute] int id) {
+            var ingredient = _context.Ingredients.Find(id);
+
+            if(ingredient == null) {
+                return NotFound();
+            }
+
+            return Ok(ingredient.ToIngredientDto());
+        }
+        
+    }
+}
