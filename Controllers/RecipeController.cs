@@ -44,5 +44,26 @@ namespace digital_menu.Controllers
             _context.SaveChanges();
             return CreatedAtAction(nameof(GetById), new {id = recipeModel}, recipeModel.ToRecipeDto());
         }
+
+        [HttpPut]
+        [Route("{id}")]
+        public IActionResult Update([FromRoute] int id, [FromBody] UpdateRecipeRequestDto updateDto)
+        {
+            var recipeModel = _context.Recipes.FirstOrDefault(r => r.Id == id);
+
+            if(recipeModel == null)
+            {
+               return NotFound(); 
+            }
+
+            recipeModel.Name = updateDto.Name;
+            recipeModel.PreparationMethod = updateDto.PreparationMethod;
+
+            _context.SaveChanges();
+
+            return Ok(recipeModel.ToRecipeDto());
+
+
+        }    
     }
 }
