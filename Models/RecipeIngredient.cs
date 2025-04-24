@@ -16,5 +16,8 @@ namespace digital_menu.Models
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal Quantity { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
 }
