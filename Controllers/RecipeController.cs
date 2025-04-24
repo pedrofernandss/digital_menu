@@ -62,8 +62,22 @@ namespace digital_menu.Controllers
             _context.SaveChanges();
 
             return Ok(recipeModel.ToRecipeDto());
+        }
 
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            var recipeModel = _context.Recipes.FirstOrDefault(i => i.Id == id);
 
-        }    
+            if(recipeModel == null)
+            {
+                return NotFound();
+            }
+
+            _context.Recipes.Remove(recipeModel);
+            _context.SaveChanges();
+            return NoContent();
+        }        
     }
 }
