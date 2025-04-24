@@ -15,7 +15,8 @@ namespace digital_menu.Mappers
             {
                 Id = recipeModel.Id,
                 Name = recipeModel.Name,
-                PreparationMethod = recipeModel.PreparationMethod
+                PreparationMethod = recipeModel.PreparationMethod,
+                Ingredients = recipeModel.RecipeIngredients.Select(ri => ri.ToREDto()).ToList()
             };
         }
 
