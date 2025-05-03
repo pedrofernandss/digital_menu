@@ -1,0 +1,14 @@
+# Ignore local config folders
+.vscode/
+
+# Ignore folders generated after compilation step
+bin/
+obj/
+out/
+
+# Ignore project config. files
+.gitignore
+*.md
+
+# Ignore enviroment files
+.env.*
