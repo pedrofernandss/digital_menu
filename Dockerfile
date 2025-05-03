@@ -8,4 +8,4 @@ WORKDIR /app
 COPY . /app
 
 # Execute the project on dev mode
-ENTRYPOINT ["dotnet run --watch"]
+ENTRYPOINT ["dotnet", "run", "--watch"]
