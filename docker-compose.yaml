@@ -1,0 +1,27 @@
+services: 
+  database: 
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sql_server
+    environment:
+      - ACCEPT_EULA="Y"
+      - SA_PASSWORD="SqlServer2022!"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    networks:
+      - digital_menu
+  api: 
+    build: . 
+    container_name: "digital_menu_api"
+    depends_on:
+      - database
+
+networks:
+  digital_menu:
+    driver: bridge
+
+volumes:
+  sqlserver_data:
+    driver: local
+
